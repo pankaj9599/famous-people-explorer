@@ -7,7 +7,10 @@ from langchain.chains import LLMChain, SequentialChain
 from langchain.memory import ConversationBufferMemory
 
 # Set API key
-os.environ["GOOGLE_API_KEY"] = gemini_key
+# os.environ["GOOGLE_API_KEY"] = gemini_key
+
+gemini_key = st.secrets["general"]["gemini_key"]
+
 
 # -------------------- Streamlit UI --------------------
 st.set_page_config(page_title="Famous People Explorer", page_icon="🌟")
