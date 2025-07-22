@@ -8,7 +8,10 @@ from langchain.memory import ConversationBufferMemory
 # Set API key
 # os.environ["GOOGLE_API_KEY"] = gemini_key
 
-gemini_key = st.secrets["general"]["gemini_key"]
+import os
+gemini_key = os.environ.get("GEMINI_KEY")
+os.environ["GOOGLE_API_KEY"] = gemini_key
+
 
 
 # -------------------- Streamlit UI --------------------
