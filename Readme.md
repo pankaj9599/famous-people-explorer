@@ -68,3 +68,4 @@ Option B (Alternative): Use .env with dotenv
 GOOGLE_API_KEY=your-google-api-key
 
 streamlit run main.py
+# famous-people-explorer

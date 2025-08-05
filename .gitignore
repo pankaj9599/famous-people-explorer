@@ -1,5 +1,1 @@
-myenv/
-__pycache__/
-*.pyc
-constants.py
 .env

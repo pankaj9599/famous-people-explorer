@@ -1,16 +1,14 @@
 import os
+from dotenv import load_dotenv  # ✅ load .env file
 import streamlit as st
-from constants import gemini_key
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
 from langchain.memory import ConversationBufferMemory
 
-# Set API key
-# os.environ["GOOGLE_API_KEY"] = gemini_key
-
-gemini_key = st.secrets["general"]["gemini_key"]
-
+# ✅ Load API key from .env file
+load_dotenv()
+os.environ["GOOGLE_API_KEY"] = os.getenv("GEMINI_API_KEY")
 
 # -------------------- Streamlit UI --------------------
 st.set_page_config(page_title="Famous People Explorer", page_icon="🌟")
@@ -69,7 +67,6 @@ chain_combine = SequentialChain(
 
 # -------------------- Run the Chain --------------------
 if st.button("🔍 Search") and input_text:
-
     with st.spinner("🔎 Searching..."):
         try:
             response = chain_combine.invoke({"name": input_text})
